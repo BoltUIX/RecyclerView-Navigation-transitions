@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_recycler_view">
+
+    <!--this is our start destination-->
+    <fragment
+        android:id="@+id/nav_recycler_view"
+        android:name="com.androidx.androidjetpack.RecyclerViewFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/recycler_view">
+
+        <!--Navigate home to detail page-->
+        <action
+            android:id="@+id/action_nav_recycler_view_to_nav_detail_view"
+            app:destination="@id/nav_detail_view" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_view"
+        android:name="com.androidx.androidjetpack.DetailFragment"
+        android:label="Detail Fragment"
+        tools:layout="@layout/detail_fragment"
+        >
+
+        <!--Get this argument data from home fragment-->
+        <argument
+            android:name="transition"
+            app:argType="string" />
+        <argument
+            android:defaultValue="Title"
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
